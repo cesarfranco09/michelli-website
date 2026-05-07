@@ -1,0 +1,252 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+export default function About() {
+  return (
+    <section
+      id="about"
+      className="relative bg-cream py-24 sm:py-32 lg:py-40 overflow-hidden"
+    >
+      {/* Decorative background elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gold/[0.03] blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-cloud-blue/[0.06] blur-3xl" />
+
+      {/* Decorative SVGs */}
+      {/* Star constellation — top right, bleeds off edge */}
+      <motion.svg
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-4 -right-6 w-52 h-52 sm:w-64 sm:h-64 hidden md:block pointer-events-none"
+        viewBox="0 0 80 80"
+        fill="var(--gold)"
+      >
+        <path
+          d="M45 8l4.5 9.1 10 1.5-7.2 7 1.7 10L45 31l-9 4.6 1.7-10-7.2-7 10-1.5L45 8z"
+          opacity={0.3}
+        />
+        <path
+          d="M20 50l2.4 4.9 5.4.8-3.9 3.8.9 5.4L20 62l-4.9 2.6.9-5.4-3.9-3.8 5.4-.8L20 50z"
+          opacity={0.22}
+        />
+        <path
+          d="M65 55l1.6 3.2 3.5.5-2.5 2.5.6 3.5L65 62.8l-3.2 1.7.6-3.5-2.5-2.5 3.5-.5L65 55z"
+          opacity={0.25}
+        />
+        <line
+          x1="45"
+          y1="30"
+          x2="22"
+          y2="53"
+          stroke="var(--gold)"
+          strokeWidth={0.4}
+          opacity={0.1}
+          strokeDasharray="3 4"
+        />
+      </motion.svg>
+
+      {/* Cloud — bottom right, bleeds off */}
+      <motion.svg
+        animate={{ x: [0, 12, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-16 -right-8 w-56 h-28 sm:w-72 sm:h-36 hidden md:block pointer-events-none"
+        viewBox="0 0 140 65"
+        fill="var(--cloud-blue)"
+      >
+        <ellipse cx="70" cy="44" rx="48" ry="18" opacity={0.25} />
+        <ellipse cx="48" cy="32" rx="28" ry="20" opacity={0.25} />
+        <ellipse cx="82" cy="28" rx="32" ry="22" opacity={0.25} />
+        <ellipse cx="108" cy="38" rx="20" ry="15" opacity={0.2} />
+        <ellipse cx="32" cy="40" rx="16" ry="12" opacity={0.18} />
+      </motion.svg>
+
+      {/* Heart — left side, bold */}
+      <motion.svg
+        animate={{ scale: [1, 1.15, 1], y: [0, -6, 0] }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+        className="absolute top-[50%] -left-4 w-28 h-28 sm:w-36 sm:h-36 hidden xl:block pointer-events-none"
+        viewBox="0 0 24 24"
+        fill="var(--gold)"
+      >
+        <path
+          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          opacity={0.25}
+        />
+        <path
+          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          stroke="var(--gold)"
+          strokeWidth={0.3}
+          fill="none"
+          opacity={0.35}
+        />
+      </motion.svg>
+
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Photo Side */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
+          >
+            <div className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0">
+              {/* Decorative frame behind the photo */}
+              <div className="absolute -inset-3 sm:-inset-4 border border-gold/20 rounded-2xl" />
+              <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-24 h-24 border-b-2 border-r-2 border-gold/30 rounded-br-2xl" />
+
+              {/* Photo placeholder */}
+              {/* TODO: Add Michelli's photo */}
+              <div className="relative h-full w-full rounded-xl bg-linear-to-br from-cloud-white via-cloud-blue/30 to-cream overflow-hidden">
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+                  <div className="w-20 h-20 rounded-full bg-gold/10 flex items-center justify-center mb-4">
+                    <svg
+                      className="w-8 h-8 text-gold/60"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={1}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-text-muted text-sm font-sans">
+                    Michelli&apos;s Photo
+                  </p>
+                  <p className="text-text-muted/60 text-xs font-sans mt-1">
+                    Coming Soon
+                  </p>
+                </div>
+              </div>
+
+              {/* Certification badge placeholder */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="absolute -bottom-6 -right-4 sm:-right-6 bg-warm-white rounded-xl shadow-[0_4px_24px_rgba(43,58,82,0.08)] p-4 border border-cloud-blue/20"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
+                    <svg
+                      className="w-5 h-5 text-gold"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={1.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.746 3.746 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-navy text-xs font-sans font-semibold leading-tight">
+                      Certified
+                    </p>
+                    <p className="text-text-muted text-[10px] font-sans leading-tight">
+                      Pediatric Sleep
+                      <br />
+                      Consultant
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Text Side */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {/* Label */}
+            <p className="text-[11px] sm:text-xs font-sans font-medium uppercase tracking-[0.3em] text-gold mb-4">
+              Meet Your Sleep Expert
+            </p>
+
+            {/* Heading */}
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-navy leading-[1.1] mb-8">
+              Hi, I&apos;m Michelli
+            </h2>
+
+            {/* Decorative line */}
+            <div className="w-16 h-[2px] bg-linear-to-r from-gold to-gold-light mb-8" />
+
+            {/* Bio */}
+            <div className="space-y-5 text-text-body font-sans text-base sm:text-[17px] leading-relaxed">
+              <p>
+                I know firsthand the joys and challenges of raising little ones
+                — especially when sleep feels impossible. As a certified
+                pediatric sleep consultant and a parent myself, I understand the
+                exhaustion, the frustration, and the loneliness that comes with
+                sleepless nights.
+              </p>
+              <p>
+                My journey into sleep consulting was born from my own
+                family&apos;s struggle and the life-changing relief that came
+                when we finally found our rhythm. Now, I&apos;m passionate about
+                helping other families discover the same transformation.
+              </p>
+              <p>
+                I combine evidence-based methods with a gentle, holistic
+                approach — because every family is unique, and your sleep plan
+                should be too.
+              </p>
+            </div>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="mt-10"
+            >
+              <a
+                href="#services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document
+                    .querySelector("#services")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="group inline-flex items-center gap-2 text-gold font-sans font-semibold text-sm uppercase tracking-[0.12em] transition-colors duration-300 hover:text-gold-dark"
+              >
+                Learn More About My Approach
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </a>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

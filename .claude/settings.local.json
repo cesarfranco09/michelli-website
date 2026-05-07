@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npx create-next-app@latest:*)",
       "Bash(mkdir -p /tmp/claude-backup)",
-      "Bash(cp /Users/cesarfranco/Desktop/Projects/michel-website-2/CLAUDE.md /tmp/claude-backup/)"
+      "Bash(cp /Users/cesarfranco/Desktop/Projects/Michelli-website-2/CLAUDE.md /tmp/claude-backup/)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(npx next:*)"
     ]
   }
 }

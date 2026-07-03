@@ -174,7 +174,7 @@ export default function Contact() {
             <div className="flex flex-col gap-5">
               {/* Email */}
               <a
-                href="mailto:Michelli@goldenslumbersleep.com"
+                href="mailto:Michelli@dreamynightsconsulting.com"
                 className="flex items-center gap-3 text-warm-white/60 hover:text-gold transition-colors duration-300"
               >
                 <div className="w-10 h-10 rounded-full border border-warm-white/15 flex items-center justify-center shrink-0">
@@ -193,7 +193,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <span className="font-sans text-sm tracking-wide">
-                  Michelli@goldenslumbersleep.com
+                  Michelli@dreamynightsconsulting.com
                 </span>
               </a>
 

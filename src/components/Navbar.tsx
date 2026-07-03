@@ -67,8 +67,8 @@ export default function Navbar() {
               className="relative flex items-center gap-3 shrink-0"
             >
               <Image
-                src="/assets/logo.JPG"
-                alt="Golden Slumber Sleep Consulting"
+                src="/assets/logo-mark.png"
+                alt="Dreamy Nights Sleep Consulting"
                 width={48}
                 height={48}
                 className="h-auto w-auto max-h-12 rounded-full object-cover"
@@ -80,7 +80,7 @@ export default function Navbar() {
                     scrolled ? "text-navy" : "text-warm-white"
                   }`}
                 >
-                  Golden Slumber
+                  Dreamy Nights
                 </p>
                 <p
                   className={`text-[10px] font-sans font-medium uppercase tracking-[0.2em] transition-colors duration-500 ${
@@ -229,7 +229,7 @@ export default function Navbar() {
                     transition={{ delay: 0.5 }}
                     className="mt-6 text-center text-text-muted text-xs tracking-wide"
                   >
-                    <p>Michelli@goldenslumbersleep.com</p>
+                    <p>Michelli@dreamynightsconsulting.com</p>
                   </motion.div>
                 </div>
               </div>

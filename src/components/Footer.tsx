@@ -35,15 +35,15 @@ export default function Footer() {
               className="inline-flex items-center gap-3 mb-6"
             >
               <Image
-                src="/assets/logo.JPG"
-                alt="Golden Slumber Sleep Consulting"
+                src="/assets/logo-mark.png"
+                alt="Dreamy Nights Sleep Consulting"
                 width={40}
                 height={40}
                 className="h-auto w-auto max-h-10 rounded-full object-cover"
               />
               <div>
                 <p className="font-serif text-base font-semibold text-warm-white tracking-wide">
-                  Golden Slumber
+                  Dreamy Nights
                 </p>
                 <p className="text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-warm-white/40">
                   Sleep Consulting
@@ -112,7 +112,7 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col gap-4">
               <a
-                href="mailto:Michelli@goldenslumbersleep.com"
+                href="mailto:Michelli@dreamynightsconsulting.com"
                 className="flex items-center gap-2.5 font-sans text-sm text-warm-white/50 hover:text-gold transition-colors duration-300"
               >
                 <svg
@@ -128,7 +128,7 @@ export default function Footer() {
                     d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
                   />
                 </svg>
-                Michelli@goldenslumbersleep.com
+                Michelli@dreamynightsconsulting.com
               </a>
               {/* TODO: Replace with actual phone number */}
               <a
@@ -179,7 +179,8 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-warm-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-sans text-warm-white/30 text-xs tracking-wide">
-            &copy; 2026 Golden Slumber Sleep Consulting. All rights reserved.
+            &copy; {new Date().getFullYear()} Dreamy Nights Sleep Consulting.
+            All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -129,41 +130,21 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Certification badge placeholder */}
+              {/* IPSP certification seal (client-provided official badge) */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute -bottom-6 -right-4 sm:-right-6 bg-warm-white rounded-xl shadow-[0_4px_24px_rgba(43,58,82,0.08)] p-4 border border-cloud-blue/20"
+                className="absolute -bottom-6 -right-3 sm:-bottom-7 sm:-right-6 w-24 sm:w-28 lg:w-32"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
-                    <svg
-                      className="w-5 h-5 text-gold"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.746 3.746 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-navy text-xs font-sans font-semibold leading-tight">
-                      Certified
-                    </p>
-                    <p className="text-text-muted text-[10px] font-sans leading-tight">
-                      Pediatric Sleep
-                      <br />
-                      Consultant
-                    </p>
-                  </div>
-                </div>
+                <Image
+                  src="/assets/ipsp-certified-badge.png"
+                  alt="Institute of Pediatric Sleep &amp; Parenting — Certified Sleep Consultant"
+                  width={280}
+                  height={244}
+                  className="h-auto w-full drop-shadow-[0_8px_20px_rgba(43,58,82,0.25)]"
+                />
               </motion.div>
             </div>
           </motion.div>

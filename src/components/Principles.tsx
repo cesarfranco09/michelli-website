@@ -114,7 +114,7 @@ export default function Principles() {
           <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-navy leading-[1.1]">
             Why Choose
             <br className="hidden sm:block" />
-            {" "}Golden Slumber
+            {" "}Dreamy Nights
           </h2>
         </motion.div>
 

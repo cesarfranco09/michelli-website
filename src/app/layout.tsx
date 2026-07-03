@@ -16,10 +16,15 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const siteTitle = "Dreamy Nights Sleep Consulting | Pediatric Sleep Solutions";
+const siteDescription =
+  "Personalized, gentle sleep solutions for your baby and your family. IPSP certified pediatric sleep consultant helping families achieve restful nights.";
+
 export const metadata: Metadata = {
-  title: "Golden Slumber Sleep Consulting | Pediatric Sleep Solutions",
-  description:
-    "Personalized, gentle sleep solutions for your baby and your family. Certified pediatric sleep consultant helping families achieve restful nights.",
+  // TODO: Update to the live domain once confirmed
+  metadataBase: new URL("https://dreamynightsconsulting.com"),
+  title: siteTitle,
+  description: siteDescription,
   keywords: [
     "baby sleep consultant",
     "pediatric sleep",
@@ -27,6 +32,48 @@ export const metadata: Metadata = {
     "infant sleep",
     "toddler sleep",
     "sleep consulting",
+  ],
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    siteName: "Dreamy Nights Sleep Consulting",
+    type: "website",
+    images: [{ url: "/assets/logo-dreamy-nights.jpg", width: 1200, height: 1200 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/assets/logo-dreamy-nights.jpg"],
+  },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Dreamy Nights Sleep Consulting",
+  description: siteDescription,
+  email: "Michelli@dreamynightsconsulting.com",
+  founder: {
+    "@type": "Person",
+    name: "Michelli",
+    jobTitle: "IPSP Certified Pediatric Sleep Consultant",
+  },
+  makesOffer: [
+    {
+      "@type": "Offer",
+      name: "Starter Sleep Package",
+      description: "7 days of sleep training support",
+      price: "249",
+      priceCurrency: "USD",
+    },
+    {
+      "@type": "Offer",
+      name: "Complete Sleep Package",
+      description: "14 days of sleep training support",
+      price: "399",
+      priceCurrency: "USD",
+    },
   ],
 };
 
@@ -40,7 +87,13 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

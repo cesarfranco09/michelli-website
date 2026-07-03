@@ -6,7 +6,9 @@
       "Bash(cp /Users/cesarfranco/Desktop/Projects/Michelli-website-2/CLAUDE.md /tmp/claude-backup/)",
       "Bash(npm install:*)",
       "Bash(npm run:*)",
-      "Bash(npx next:*)"
+      "Bash(npx next:*)",
+      "Bash(cksum /Users/cesarfranco/Desktop/Projects/michel-website-2/src/app/favicon.ico)",
+      "Bash(awk '{print $1, $2}')"
     ]
   }
 }

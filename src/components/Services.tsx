@@ -4,41 +4,34 @@ import { motion } from "framer-motion";
 
 const packages = [
   {
-    name: "Basic",
-    price: 150,
+    name: "Starter Sleep Package",
+    duration: "7 Days of Support",
+    price: 249,
     bestFor:
-      "Parents already sleep training who need guidance, or expecting parents wanting sleep foundation support",
+      "Perfect for families looking for guidance and accountability during the first week of sleep training.",
     features: [
-      "1-hour phone consultation",
-      "Ask-me-anything format",
-      "2 follow-up emails (within 2 months)",
+      "1 initial phone consultation (60 minutes)",
+      "Personalized sleep plan tailored to your child's age and family's goals",
+      "7 consecutive days of support via text or email",
+      "Adjustments to the plan as needed throughout the week",
+      "Final summary with recommendations for continued success",
     ],
     popular: false,
   },
   {
-    name: "Foundations",
-    price: 350,
-    bestFor: "7-day guided program",
+    name: "Complete Sleep Package",
+    duration: "14 Days of Support",
+    price: 399,
+    bestFor:
+      "Ideal for families who would like additional coaching and support while building healthy sleep habits.",
     features: [
-      "Comprehensive intake questionnaire",
-      "Custom sleep plan",
-      "Virtual nursery evaluation",
-      "1-hour kickoff phone call",
-      "Unlimited text/email support (8am\u20138pm, 7 days)",
-      "30-minute graduation call",
+      "1 initial phone consultation (60 minutes)",
+      "Personalized sleep plan tailored to your child's needs",
+      "14 consecutive days of unlimited support via text or email",
+      "Plan adjustments as your child progresses",
+      "Final wrap-up written summary with long-term recommendations",
     ],
     popular: true,
-  },
-  {
-    name: "Summit",
-    price: 499,
-    bestFor: "14-day comprehensive program",
-    features: [
-      "Everything in Foundations",
-      "Extended 14-day unlimited support window",
-      "30-minute graduation call",
-    ],
-    popular: false,
   },
 ];
 
@@ -294,17 +287,17 @@ export default function Services() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-0 items-stretch"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-4xl mx-auto"
         >
-          {packages.map((pkg, i) => (
+          {packages.map((pkg) => (
             <motion.div
               key={pkg.name}
               variants={cardVariants}
               className={`group relative flex flex-col rounded-2xl transition-all duration-500 ${
                 pkg.popular
-                  ? "bg-navy z-10 p-px lg:-mx-1 lg:scale-[1.04] shadow-[0_16px_60px_rgba(43,58,82,0.18)]"
+                  ? "bg-navy z-10 p-px lg:scale-[1.04] shadow-[0_16px_60px_rgba(43,58,82,0.18)]"
                   : "bg-warm-white border border-cloud-blue/30 hover:shadow-[0_8px_40px_rgba(43,58,82,0.06)] hover:-translate-y-1"
-              } ${i === 0 ? "lg:rounded-r-none" : ""} ${i === 2 ? "lg:rounded-l-none" : ""}`}
+              }`}
             >
               {/* Popular badge */}
               {pkg.popular && (
@@ -349,6 +342,15 @@ export default function Services() {
                     ${pkg.price}
                   </span>
                 </div>
+
+                {/* Support duration */}
+                <p
+                  className={`text-xs font-sans font-semibold uppercase tracking-[0.2em] mb-4 ${
+                    pkg.popular ? "text-gold-light" : "text-gold-dark"
+                  }`}
+                >
+                  {pkg.duration}
+                </p>
 
                 {/* Best for / description */}
                 <p

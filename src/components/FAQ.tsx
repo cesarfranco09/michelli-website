@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
-    question: "Does Golden Slumber use Cry It Out?",
+    question: "Does Dreamy Nights use Cry It Out?",
     answer:
       "No. We do not use the extinction \u201Ccry it out\u201D method. While we acknowledge that some crying is natural as children adjust to new habits, our approach focuses on teaching independent sleep skills through supportive and responsive methods. We prioritize parent-present techniques and tailor each plan to your family\u2019s comfort level.",
   },

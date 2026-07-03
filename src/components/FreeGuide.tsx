@@ -55,7 +55,7 @@ export default function FreeGuide() {
                     {/* Title area */}
                     <div className="text-center space-y-3 flex-1 flex flex-col justify-center">
                       <p className="text-[9px] font-sans font-semibold uppercase tracking-[0.3em] text-gold/70">
-                        Golden Slumber
+                        Dreamy Nights
                       </p>
                       <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-warm-white leading-tight">
                         Bedtime

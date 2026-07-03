@@ -45,7 +45,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mb-6 text-[11px] sm:text-xs font-sans font-medium uppercase tracking-[0.3em] text-gold-light"
             >
-              Certified Pediatric Sleep Consultant
+              IPSP Certified Pediatric Sleep Consultant
             </motion.p>
 
             {/* Heading */}

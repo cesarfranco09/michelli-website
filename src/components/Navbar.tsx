@@ -64,26 +64,26 @@ export default function Navbar() {
                 e.preventDefault();
                 handleNavClick("#home");
               }}
-              className="relative flex items-center gap-3 shrink-0"
+              className="relative flex items-center gap-2.5 sm:gap-3 shrink-0"
             >
               <Image
                 src="/assets/logo-mark.png"
                 alt="Dreamy Nights Sleep Consulting"
                 width={48}
                 height={48}
-                className="h-auto w-auto max-h-12 rounded-full object-cover"
+                className="h-auto w-auto max-h-10 sm:max-h-12 rounded-full object-cover"
                 priority
               />
-              <div className="hidden sm:block">
+              <div className="block">
                 <p
-                  className={`font-serif text-lg font-semibold leading-tight tracking-wide transition-colors duration-500 ${
+                  className={`font-serif text-base sm:text-lg font-semibold leading-tight tracking-wide transition-colors duration-500 ${
                     scrolled ? "text-navy" : "text-warm-white"
                   }`}
                 >
                   Dreamy Nights
                 </p>
                 <p
-                  className={`text-[10px] font-sans font-medium uppercase tracking-[0.2em] transition-colors duration-500 ${
+                  className={`text-[9px] sm:text-[10px] font-sans font-medium uppercase tracking-[0.16em] sm:tracking-[0.2em] transition-colors duration-500 ${
                     scrolled ? "text-text-muted" : "text-warm-white/70"
                   }`}
                 >

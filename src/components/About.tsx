@@ -1,9 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
+// Michelli's bio — first two paragraphs show by default, the rest behind "Read more"
+const bioIntro = [
+  "I’m a proud Brazilian mother of two amazing daughters, and I know firsthand just how transformative quality sleep can be — not only for children, but for the entire family.",
+  "For more than 10 years, I’ve worked as a nanny in California, caring for children of all ages and supporting families through every stage of early childhood. Throughout my career, I’ve helped numerous families establish healthy sleep habits and overcome common sleep challenges. Seeing exhausted parents regain their energy and confidence while their children began sleeping more peacefully inspired me to turn my passion into a profession by becoming a Certified Pediatric Sleep Consultant through IPSP.",
+];
+const bioMore = [
+  "Today, I combine my experience as both a mother and childcare professional with proven sleep strategies that have already helped many families achieve lasting results. My approach is centered on understanding that every child is unique and every family has different needs, values, and goals. There is no one-size-fits-all solution when it comes to sleep.",
+  "Families who work with me receive compassionate, personalized, and judgment-free support designed to create healthy, sustainable sleep habits. The result is often more than just better sleep for a child — it means more rest for parents, less stress in the home, and happier, more connected family days.",
+  "I understand the exhaustion, uncertainty, and emotions that can come with sleep challenges, because I’ve experienced them myself. That’s why I’m passionate about empowering parents with the knowledge, confidence, and guidance they need to navigate their child’s sleep journey successfully.",
+  "Nothing brings me greater joy than helping families achieve restful nights, brighter mornings, and a healthier balance at home. I would be honored to support your family and help you create the foundation for better sleep and happier days ahead.",
+];
+
 export default function About() {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <section
       id="about"
@@ -170,25 +185,56 @@ export default function About() {
             <div className="w-16 h-[2px] bg-linear-to-r from-gold to-gold-light mb-8" />
 
             {/* Bio */}
-            <div className="space-y-5 text-text-body font-sans text-base sm:text-[17px] leading-relaxed">
-              <p>
-                I know firsthand the joys and challenges of raising little ones
-                — especially when sleep feels impossible. As a certified
-                pediatric sleep consultant and a parent myself, I understand the
-                exhaustion, the frustration, and the loneliness that comes with
-                sleepless nights.
-              </p>
-              <p>
-                My journey into sleep consulting was born from my own
-                family&apos;s struggle and the life-changing relief that came
-                when we finally found our rhythm. Now, I&apos;m passionate about
-                helping other families discover the same transformation.
-              </p>
-              <p>
-                I combine evidence-based methods with a gentle, holistic
-                approach — because every family is unique, and your sleep plan
-                should be too.
-              </p>
+            <div className="text-text-body font-sans text-base sm:text-[17px] leading-relaxed">
+              <div className="space-y-5">
+                {bioIntro.map((para) => (
+                  <p key={para.slice(0, 24)}>{para}</p>
+                ))}
+              </div>
+
+              <AnimatePresence initial={false}>
+                {expanded && (
+                  <motion.div
+                    key="bio-more"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="space-y-5 pt-5">
+                      {bioMore.map((para) => (
+                        <p key={para.slice(0, 24)}>{para}</p>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Read more / less toggle */}
+              <button
+                type="button"
+                onClick={() => setExpanded((v) => !v)}
+                aria-expanded={expanded}
+                className="group mt-6 inline-flex items-center gap-1.5 text-navy font-sans font-semibold text-sm transition-colors duration-300 hover:text-gold"
+              >
+                {expanded ? "Read less" : "Read more"}
+                <svg
+                  className={`w-4 h-4 transition-transform duration-300 ${
+                    expanded ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
             </div>
 
             {/* CTA */}

@@ -5,14 +5,24 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
+    question: "What ages do you work with?",
+    answer:
+      "I support families from the newborn stage through the toddler years. Formal sleep training typically begins around 4 months (and 12+ lbs) with your pediatrician\u2019s okay, but healthy sleep foundations can start from day one. And yes \u2014 toddlers are very welcome. Bedtime battles, crib-to-bed transitions, and requests for \u201Cone more hug\u201D are some of my favorite challenges to solve.",
+  },
+  {
     question: "Does Dreamy Nights use Cry It Out?",
     answer:
       "No. We do not use the extinction \u201Ccry it out\u201D method. While we acknowledge that some crying is natural as children adjust to new habits, our approach focuses on teaching independent sleep skills through supportive and responsive methods. We prioritize parent-present techniques and tailor each plan to your family\u2019s comfort level.",
   },
   {
-    question: "At what age can I start sleep training?",
+    question: "Will my baby cry?",
     answer:
-      "Formal sleep training typically begins at 4 months (and 12+ lbs) with pediatrician clearance. However, you can start building healthy sleep foundations from birth \u2014 and we can guide you through that too.",
+      "Some protest is a natural part of change \u2014 crying is how little ones express that something is different. What I can promise is that your child will never be left to figure it out alone. We choose a method that matches your comfort level, you\u2019ll know exactly how to respond at every moment, and I\u2019m right beside you as things settle \u2014 usually much faster than parents expect.",
+  },
+  {
+    question: "Is sleep training safe?",
+    answer:
+      "Yes. Decades of research show that teaching independent sleep skills is safe and does not harm attachment or bonding \u2014 in fact, well-rested babies (and parents) tend to have more connected, joyful days together. Every plan I create follows current safe sleep guidelines and is tailored to your child\u2019s age, health, and temperament.",
   },
   {
     question: "Can I sleep train while breastfeeding?",
@@ -23,6 +33,16 @@ const faqs = [
     question: "What if my child has reflux or medical needs?",
     answer:
       "We work closely with families navigating medical challenges. Michelli factors in your child\u2019s health needs and collaborates with your pediatrician\u2019s guidance when creating your custom plan.",
+  },
+  {
+    question: "What if my child shares a room?",
+    answer:
+      "Room-sharing \u2014 with a sibling or with you \u2014 doesn\u2019t rule out better sleep. Many of the families I work with share rooms by choice or by necessity. Your plan will include practical strategies for minimizing overnight disruptions, staggering bedtimes when needed, and helping everyone in the room rest easier.",
+  },
+  {
+    question: "Do you offer virtual consultations?",
+    answer:
+      "Yes! Most of my clients work with me virtually, and I support families worldwide through video calls, text, and email. Sleep coaching translates beautifully to virtual support \u2014 I\u2019m guiding you, and you\u2019re the one comforting your child. For families in California, in-person support is also available.",
   },
   {
     question: "How long does it take to see results?",

@@ -180,12 +180,31 @@ export default function Testimonials() {
 
                   {/* Small quote icon */}
                   <svg
-                    className="w-8 h-8 sm:w-10 sm:h-10 text-gold/40 mb-6"
+                    className="w-8 h-8 sm:w-10 sm:h-10 text-gold/40 mb-4"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
                     <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
                   </svg>
+
+                  {/* 5-star rating */}
+                  <div
+                    className="flex items-center gap-1 mb-6"
+                    role="img"
+                    aria-label="Rated 5 out of 5 stars"
+                  >
+                    {[...Array(5)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className="w-4 h-4 sm:w-5 sm:h-5"
+                        viewBox="0 0 24 24"
+                        fill="var(--gold)"
+                        aria-hidden="true"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                    ))}
+                  </div>
 
                   {/* Quote text */}
                   <blockquote className="font-serif text-lg sm:text-xl lg:text-2xl text-warm-white/90 leading-relaxed mb-8">

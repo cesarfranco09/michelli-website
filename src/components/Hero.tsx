@@ -67,8 +67,9 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.8 }}
               className="mt-6 sm:mt-8 max-w-lg text-base sm:text-lg leading-relaxed text-warm-white font-sans font-light"
             >
-              Personalized, gentle sleep solutions for your baby and your family.
-              Because everyone deserves a good night&apos;s sleep.
+              Helping babies and toddlers sleep better with gentle,
+              personalized support — because everyone in your home deserves a
+              good night&apos;s sleep.
             </motion.p>
 
             {/* CTAs */}

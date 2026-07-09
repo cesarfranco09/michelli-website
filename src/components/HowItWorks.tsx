@@ -204,9 +204,12 @@ export default function HowItWorks() {
           <p className="text-[11px] sm:text-xs font-sans font-medium uppercase tracking-[0.3em] text-gold mb-4">
             Your Journey
           </p>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-navy leading-[1.1]">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-navy leading-[1.1] mb-5">
             How It Works
           </h2>
+          <p className="max-w-lg mx-auto font-sans text-text-muted text-base sm:text-lg leading-relaxed">
+            From exhausted to well-rested in four simple steps.
+          </p>
         </motion.div>
 
         {/* Timeline */}

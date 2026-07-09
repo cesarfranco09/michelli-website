@@ -1,7 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import CredibilityStrip from "@/components/CredibilityStrip";
 import About from "@/components/About";
 import Principles from "@/components/Principles";
+import SleepChecklist from "@/components/SleepChecklist";
 import Services from "@/components/Services";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
@@ -16,8 +18,10 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <CredibilityStrip />
         <About />
         <Principles />
+        <SleepChecklist />
         <Services />
         <HowItWorks />
         <Testimonials />

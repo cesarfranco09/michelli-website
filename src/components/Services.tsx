@@ -277,7 +277,8 @@ export default function Services() {
             Sleep Packages
           </h2>
           <p className="max-w-lg mx-auto font-sans text-text-muted text-base sm:text-lg leading-relaxed">
-            Find the right plan for you and your little one.
+            Imagine bedtime becoming the calmest part of your day. Choose the
+            level of support that gets you there.
           </p>
         </motion.div>
 
@@ -438,6 +439,34 @@ export default function Services() {
           </a>{" "}
           and we&apos;ll help you decide.
         </motion.p>
+
+        {/* Exclusivity note */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-2xl mx-auto mt-10 sm:mt-14 border border-gold/20 bg-gold/[0.04] rounded-2xl px-8 py-7 text-center"
+        >
+          <svg
+            className="w-6 h-6 mx-auto mb-3 text-gold"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={1.5}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"
+            />
+          </svg>
+          <p className="font-serif italic text-navy text-lg leading-relaxed">
+            Because I work one-on-one with every family, I accept a limited
+            number of clients each month to provide the highest level of
+            personalized support.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

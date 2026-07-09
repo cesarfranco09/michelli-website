@@ -1,8 +1,49 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+type FormStatus =
+  | { state: "idle" }
+  | { state: "sending" }
+  | { state: "sent" }
+  | { state: "download"; url: string }
+  | { state: "error"; message: string };
 
 export default function FreeGuide() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<FormStatus>({ state: "idle" });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus({ state: "sending" });
+    try {
+      const res = await fetch("/api/guide", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setStatus({
+          state: "error",
+          message: data.error || "Something went wrong. Please try again.",
+        });
+        return;
+      }
+      if (data.delivery === "email") {
+        setStatus({ state: "sent" });
+      } else {
+        setStatus({ state: "download", url: data.url });
+      }
+    } catch {
+      setStatus({
+        state: "error",
+        message: "Something went wrong. Please try again.",
+      });
+    }
+  };
+
   return (
     <section className="relative bg-cream py-24 sm:py-32 lg:py-40 overflow-hidden">
       {/* Decorative background */}
@@ -140,26 +181,111 @@ export default function FreeGuide() {
               </ul>
 
               {/* Email form */}
-              {/* TODO: Connect to email service (e.g., Mailchimp, ConvertKit) */}
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className="flex flex-col sm:flex-row gap-3"
-              >
-                <div className="relative flex-1">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    required
-                    className="w-full h-14 px-5 bg-cloud-white border border-cloud-blue/30 rounded-full font-sans text-sm text-navy placeholder:text-text-muted/60 outline-none transition-all duration-300 focus:border-gold/50 focus:ring-2 focus:ring-gold/10"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="h-14 px-8 bg-gold text-navy-dark text-sm font-sans font-semibold uppercase tracking-[0.12em] rounded-full transition-all duration-300 hover:bg-gold-light hover:shadow-[0_8px_30px_rgba(212,168,67,0.3)] hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
-                >
-                  Send Me the Guide
-                </button>
-              </form>
+              <AnimatePresence mode="wait" initial={false}>
+                {status.state === "sent" || status.state === "download" ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="rounded-2xl border border-gold/25 bg-gold/[0.06] p-6 text-center"
+                  >
+                    <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-gold/15">
+                      <svg
+                        className="h-5 w-5 text-gold-dark"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        />
+                      </svg>
+                    </div>
+                    {status.state === "sent" ? (
+                      <>
+                        <p className="font-serif text-xl font-semibold text-navy mb-1.5">
+                          The guide is on its way!
+                        </p>
+                        <p className="font-sans text-sm text-text-body leading-relaxed">
+                          Check your inbox for Bedtime Foundations. Don&apos;t
+                          see it? Peek in your spam folder — or{" "}
+                          <a
+                            href="/assets/bedtime-foundations-guide.pdf"
+                            download
+                            className="text-gold-dark font-semibold underline underline-offset-2 decoration-gold/40 hover:decoration-gold transition-colors duration-300"
+                          >
+                            download it right here
+                          </a>
+                          .
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <p className="font-serif text-xl font-semibold text-navy mb-1.5">
+                          Here&apos;s your guide!
+                        </p>
+                        <p className="font-sans text-sm text-text-body leading-relaxed mb-4">
+                          Thanks for signing up — your copy of Bedtime
+                          Foundations is ready.
+                        </p>
+                        <a
+                          href={status.url}
+                          download
+                          className="inline-flex h-12 items-center px-8 bg-gold text-navy-dark text-sm font-sans font-semibold uppercase tracking-[0.12em] rounded-full transition-all duration-300 hover:bg-gold-light hover:shadow-[0_8px_30px_rgba(212,168,67,0.3)] hover:scale-[1.02] active:scale-[0.98]"
+                        >
+                          Download the Guide
+                        </a>
+                      </>
+                    )}
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="form"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <form
+                      onSubmit={handleSubmit}
+                      className="flex flex-col sm:flex-row gap-3"
+                    >
+                      <div className="relative flex-1">
+                        <input
+                          type="email"
+                          placeholder="Enter your email"
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          disabled={status.state === "sending"}
+                          className="w-full h-14 px-5 bg-cloud-white border border-cloud-blue/30 rounded-full font-sans text-sm text-navy placeholder:text-text-muted/60 outline-none transition-all duration-300 focus:border-gold/50 focus:ring-2 focus:ring-gold/10 disabled:opacity-60"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        disabled={status.state === "sending"}
+                        className="h-14 px-8 bg-gold text-navy-dark text-sm font-sans font-semibold uppercase tracking-[0.12em] rounded-full transition-all duration-300 hover:bg-gold-light hover:shadow-[0_8px_30px_rgba(212,168,67,0.3)] hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap disabled:opacity-70 disabled:hover:scale-100"
+                      >
+                        {status.state === "sending"
+                          ? "Sending…"
+                          : "Send Me the Guide"}
+                      </button>
+                    </form>
+                    {status.state === "error" && (
+                      <p
+                        role="alert"
+                        className="mt-3 font-sans text-sm text-red-700/80"
+                      >
+                        {status.message}
+                      </p>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               <p className="mt-4 font-sans text-text-muted text-xs">
                 No spam, ever. Unsubscribe anytime.

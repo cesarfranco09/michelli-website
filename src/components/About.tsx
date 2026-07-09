@@ -7,7 +7,7 @@ import Image from "next/image";
 // Michelli's bio — first two paragraphs show by default, the rest behind "Read more"
 const bioIntro = [
   "I’m a proud Brazilian mother of two amazing daughters, and I know firsthand just how transformative quality sleep can be — not only for children, but for the entire family.",
-  "For more than 10 years, I’ve worked as a nanny in California, caring for children of all ages and supporting families through every stage of early childhood. Throughout my career, I’ve helped numerous families establish healthy sleep habits and overcome common sleep challenges. Seeing exhausted parents regain their energy and confidence while their children began sleeping more peacefully inspired me to turn my passion into a profession by becoming a Certified Pediatric Sleep Consultant through IPSP.",
+  "For more than 10 years, I’ve worked as a nanny in California, caring for children of all ages and supporting families through every stage of early childhood. Throughout my career, I’ve helped numerous families establish healthy sleep habits and overcome common sleep challenges. Seeing exhausted parents regain their energy and confidence while their children began sleeping more peacefully inspired me to turn my passion into a profession by becoming a Certified Pediatric Sleep Consultant through IPSP and a Certified Nanny Specialist.",
 ];
 const bioMore = [
   "Today, I combine my experience as both a mother and childcare professional with proven sleep strategies that have already helped many families achieve lasting results. My approach is centered on understanding that every child is unique and every family has different needs, values, and goals. There is no one-size-fits-all solution when it comes to sleep.",
@@ -183,6 +183,35 @@ export default function About() {
 
             {/* Decorative line */}
             <div className="w-16 h-[2px] bg-linear-to-r from-gold to-gold-light mb-8" />
+
+            {/* Credential chips */}
+            <div className="flex flex-wrap gap-2.5 mb-8">
+              {[
+                "IPSP Certified Sleep Consultant",
+                "Certified Nanny Specialist",
+                "10+ Years of Childcare Experience",
+              ].map((credential) => (
+                <span
+                  key={credential}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/5 border border-gold/20 text-navy font-sans text-[13px] font-medium"
+                >
+                  <svg
+                    className="w-3.5 h-3.5 text-gold shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4.5 12.75l6 6 9-13.5"
+                    />
+                  </svg>
+                  {credential}
+                </span>
+              ))}
+            </div>
 
             {/* Bio */}
             <div className="text-text-body font-sans text-base sm:text-[17px] leading-relaxed">
